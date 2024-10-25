@@ -1,13 +1,135 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Web Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Basic styles for modal */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <h1>SuperNinja</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor fugiat necessitatibus accusantium assumenda excepturi iusto tempora totam non obcaecati illum. Minima deserunt adipisci amet dignissimos rem explicabo ad praesentium nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor fugiat necessitatibus accusantium assumenda excepturi iusto tempora totam non obcaecati illum. Minima deserunt adipisci amet dignissimos rem explicabo ad praesentium nesciunt.</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor fugiat necessitatibus accusantium assumenda excepturi iusto tempora totam non obcaecati illum. Minima deserunt adipisci amet dignissimos rem explicabo ad praesentium nesciunt.</p>
+
+    <!-- Header Section with Sign In Button -->
+    <header>
+        <h1>Welcome to My Website</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="signInBtn">Sign In</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to the home page of my website! Here you’ll find all the latest information and updates.</p>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <p>This section can include a brief introduction or background information about you or your website.</p>
+        </section>
+
+        <section id="services">
+            <h2>Services</h2>
+            <p>List the services you offer or describe what your website is all about.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Sign In Modal -->
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Sign In</h2>
+            <form action="login" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 My Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Modal handling for Sign In
+        const modal = document.getElementById("signInModal");
+        const signInBtn = document.getElementById("signInBtn");
+        const closeBtn = document.querySelector(".close");
+
+        signInBtn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
 </body>
 </html>
